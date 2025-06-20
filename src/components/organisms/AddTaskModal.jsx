@@ -201,7 +201,7 @@ const AddTaskModal = ({ isOpen, onClose, task = null, onSuccess }) => {
                       onChange={(e) => handleChange('listId', e.target.value)}
                       className="w-full px-3 py-2 border border-surface-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary"
                     >
-                      {taskLists.map(list => (
+{taskLists.map(list => (
                         <option key={list.Id} value={list.Id}>
                           {list.name}
                         </option>

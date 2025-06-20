@@ -114,7 +114,7 @@ const Lists = () => {
     }
   }
 
-  const handleListClick = (list) => {
+const handleListClick = (list) => {
     navigate(`/tasks?list=${list.Id}`)
   }
 

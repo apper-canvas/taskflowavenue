@@ -1,11 +1,11 @@
-import { Outlet, NavLink, useLocation } from 'react-router-dom'
-import { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
-import ApperIcon from '@/components/ApperIcon'
-import { routeArray } from '@/config/routes'
-import AddTaskModal from '@/components/organisms/AddTaskModal'
-import SearchBar from '@/components/molecules/SearchBar'
-
+import { NavLink, Outlet, useLocation } from "react-router-dom";
+import React, { useState, useContext } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import ApperIcon from "@/components/ApperIcon";
+import { routeArray } from "@/config/routes";
+import AddTaskModal from "@/components/organisms/AddTaskModal";
+import SearchBar from "@/components/molecules/SearchBar";
+import { AuthContext } from "@/context/AuthContext";
 const Layout = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [isAddTaskModalOpen, setIsAddTaskModalOpen] = useState(false)
@@ -41,7 +41,7 @@ const Layout = () => {
             </div>
           </div>
 
-          <div className="flex items-center gap-3">
+<div className="flex items-center gap-3">
             {/* Search bar - hidden on mobile */}
             <div className="hidden md:block">
               <SearchBar />
@@ -56,6 +56,20 @@ const Layout = () => {
             >
               <ApperIcon name="Plus" size={16} />
               <span className="hidden sm:inline">Add Task</span>
+            </motion.button>
+            
+            {/* Logout button */}
+            <motion.button
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              onClick={() => {
+                const { logout } = useContext(AuthContext);
+                logout();
+              }}
+              className="bg-surface-200 text-surface-700 px-4 py-2 rounded-lg font-medium flex items-center gap-2 hover:bg-surface-300 transition-colors"
+            >
+              <ApperIcon name="LogOut" size={16} />
+              <span className="hidden sm:inline">Logout</span>
             </motion.button>
           </div>
         </div>

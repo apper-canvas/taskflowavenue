@@ -100,7 +100,7 @@ const Tasks = () => {
             <span className="text-sm font-medium text-surface-700">Filter by:</span>
             
             {/* List filters */}
-            {taskLists.map(list => (
+{taskLists.map(list => (
               <motion.button
                 key={list.Id}
                 whileHover={{ scale: 1.02 }}
