@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Import react-toastify CSS */
+@import 'react-toastify/dist/ReactToastify.css';
+
+/* Ensure scrollbars are visible */
+body {
+  overflow-y: auto;
+  overflow-x: hidden;
+  margin: 0;
+  min-height: 100vh;
+}
+
+/* Prevent horizontal overflow */
+* {
+  max-width: 100%;
+}
+
+/* Main content areas must allow scroll */
+.main-content {
+  overflow-y: auto;
+  height: 100vh;
+}
+
+@layer utilities {
+  /* Only use scrollbar-hide for specific UI elements, never main content */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Custom checkbox styling */
+  .task-checkbox {
+    @apply appearance-none w-5 h-5 border-2 border-surface-400 rounded bg-white cursor-pointer transition-all duration-200;
+  }
+  
+  .task-checkbox:checked {
+    @apply bg-accent border-accent;
+  }
+  
+  .task-checkbox:checked::after {
+    content: '✓';
+    @apply text-white text-sm font-semibold flex items-center justify-center h-full;
+  }
+  
+  .task-checkbox:hover {
+    @apply border-primary;
+  }
+}

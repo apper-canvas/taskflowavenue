@@ -1,0 +1,26 @@
+[
+  {
+    "Id": 1,
+    "name": "Work",
+    "color": "#5B47E0",
+    "icon": "Briefcase",
+    "taskCount": 2,
+    "order": 1
+  },
+  {
+    "Id": 2,
+    "name": "Personal",
+    "color": "#00D4AA",
+    "icon": "User",
+    "taskCount": 2,
+    "order": 2
+  },
+  {
+    "Id": 3,
+    "name": "Projects",
+    "color": "#FFB547",
+    "icon": "FolderOpen",
+    "taskCount": 0,
+    "order": 3
+  }
+]
