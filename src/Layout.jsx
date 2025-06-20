@@ -1,15 +1,17 @@
 import { NavLink, Outlet, useLocation } from "react-router-dom";
-import React, { useState, useContext } from "react";
+import React, { useContext, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import ApperIcon from "@/components/ApperIcon";
 import { routeArray } from "@/config/routes";
 import AddTaskModal from "@/components/organisms/AddTaskModal";
 import SearchBar from "@/components/molecules/SearchBar";
-import { AuthContext } from "@/context/AuthContext";
+import { AuthContext } from "@/App";
+
 const Layout = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [isAddTaskModalOpen, setIsAddTaskModalOpen] = useState(false)
   const location = useLocation()
+  const { logout } = useContext(AuthContext)
 
   const sidebarVariants = {
     open: { x: 0, opacity: 1 },
@@ -62,8 +64,7 @@ const Layout = () => {
             <motion.button
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              onClick={() => {
-                const { logout } = useContext(AuthContext);
+onClick={() => {
                 logout();
               }}
               className="bg-surface-200 text-surface-700 px-4 py-2 rounded-lg font-medium flex items-center gap-2 hover:bg-surface-300 transition-colors"
